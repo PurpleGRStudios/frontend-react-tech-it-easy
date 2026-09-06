@@ -1,0 +1,45 @@
+.page-container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px;
+    background-color: white;
+}
+
+.dashboard-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.dashboard-item{
+    border-radius: 4px;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 300px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.items-sold{
+    border: 1px solid green;
+    color: green;
+    background-color: lightgreen;
+}
+
+.items-bought{
+    border: 1px solid blue;
+    color: blue;
+    background-color: lightblue;
+}
+
+
+.items-to-sell {
+    border: 1px solid red;
+    color: red;
+    background-color: lightcoral;
+}
+
