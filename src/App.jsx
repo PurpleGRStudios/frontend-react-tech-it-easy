@@ -2,6 +2,8 @@ import {bestSellingTv, inventory} from "./constants/inventory.js";
 import TvSalesDone from "./helpers/TvSalesDone.js";
 import TotalTvBought from "./helpers/TotalTvBought.js"
 import TotalTvsToSell from "./helpers/TotalTvsToSell.js";
+import productPrice from "./helpers/productPrice.js";
+import productName from "./helpers/productName.js";
 import './App.css';
 
 function App() {
@@ -24,8 +26,20 @@ function App() {
                   <h2>{TotalTvsToSell(inventory)}</h2>
               </article>
           </div>
-            <div className="dashboard-container"></div>
         </section>
+          <section className= "best-seller-container">
+              <span className="product-image">
+                  <img src={bestSellingTv.sourceImg}/>
+              </span>
+              <div className="dashboard-container">
+
+                  <h3> Best Selling Tv </h3>
+
+
+              </div>
+          </section>
+
+
       </main>
   )
 }
