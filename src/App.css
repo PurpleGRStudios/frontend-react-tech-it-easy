@@ -57,3 +57,35 @@
 .product image{
     image-rendering: smooth;
 }
+
+.product-price{
+    font-size: 24px;
+}
+
+.option-list {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.icon{
+    width: 12px;
+}
+
+.product {
+    border-radius: 4px;
+    padding: 16px 32px;
+    margin: 8px 0;
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    gap: 34px;
+    align-items: center;
+}
+
+.product-best-seller {
+    border: 1px dashed black;
+    background-color: #ededed;
+}
