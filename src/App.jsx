@@ -7,12 +7,15 @@ import productName from './helpers/productName.js';
 import CreateScreenStringNames from './helpers/createScreenSizesString.js';
 import minus from './assets/minus.png';
 import check from './assets/check.png';
+import showOefeningOneInConsole from './constants/oefenbestand.js';
 import './App.css';
 
 
 
 
 function App() {
+    showOefeningOneInConsole();
+
   return (
       <main className="page-container">
         <h1>Tech it easy dashboard</h1>

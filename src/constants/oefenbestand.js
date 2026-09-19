@@ -19,4 +19,30 @@ function showOefeningOneInConsole(){
     });
 
     console.log(productSoldOut);
+
+    //opdracht 1c
+    const getSpecificProduct = inventory.find((tv) =>{
+        return tv.type === "NH3216SMART";
+    });
+
+    console.log(getSpecificProduct);
+
+    //opdracht 1d
+    const getProductInfo = inventory.map((tv) => {
+        if (tv.refreshRate >= 100){
+            return {name: `${tv.name} ${tv.brand}`, suitable: true}
+        } else{
+            return {name: `${tv.name} ${tv.brand}`, suitable: false}
+        }
+    });
+
+    console.log(getProductInfo);
+
+    //opdracht 1e
+    const largeScreens = inventory.find((tv) =>{
+        return tv.size >= 65;
+    });
+    console.log(largeScreens);
 }
+
+export default showOefeningOneInConsole;
