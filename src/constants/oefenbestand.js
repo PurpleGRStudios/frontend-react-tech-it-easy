@@ -39,10 +39,28 @@ function showOefeningOneInConsole(){
     console.log(getProductInfo);
 
     //opdracht 1e
-    const largeScreens = inventory.find((tv) =>{
-        return tv.size >= 65;
+    const largeScreens = inventory.filter((tv) =>{
+        const hasLargeScreen = tv.availableSizes.find((size)=> {
+            return size >= 65;
+        })
+        return hasLargeScreen;
     });
     console.log(largeScreens);
+
+
+    //opdracht 1f
+    const ambilightTV = inventory.filter((tv) => {
+        const ambilightOption = tv.options.find((option) => {
+            return option.name === "ambilight";
+        });
+        if (ambilightOption?.applicable === true){
+            return true
+        }
+        //if (ambilightOption.suitable === false){
+        //    return false;
+        //}
+    });
+    console.log(ambilightTV);
 }
 
 export default showOefeningOneInConsole;

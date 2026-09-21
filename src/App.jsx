@@ -36,6 +36,12 @@ function App() {
               </article>
           </div>
         </section>
+          <h3>Beschikbare merken</h3>
+          <ul>
+              {inventory.map((tv) =>{
+                  return <li key={`Merkenlijst-${tv.type}`}>${tv.brand}</li>
+              })}
+          </ul>
           <section className= "best-seller-container">
               <h2>Best verkochte tv</h2>
               <article className="product product-best-seller">
