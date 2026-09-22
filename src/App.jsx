@@ -16,6 +16,38 @@ import './App.css';
 function App() {
     showOefeningOneInConsole();
 
+    function sortBestSellers() {
+        inventory.sort((a, b) => {
+            return b.sold - a.sold;
+        });
+
+        console.log('Best verkocht', inventory);
+    }
+
+    function sortCheapestTv() {
+        inventory.sort((a, b) => {
+            return a.price - b.price;
+        });
+        console.log('Cheapest verkocht', inventory);
+    }
+
+    function sortSportTv() {
+        inventory.sort((a, b) => {
+            return b.refreshRate - a.refreshRate;
+        })
+        console.log('Sport verkocht', inventory);
+    }
+
+    function sortBiggestScreen() {
+        inventory.sort((a, b) => {
+            const largetSizeA = a.availableSizes[a.availableSizes.length - 1]
+            const largetSizeB = b.availableSizes[b.availableSizes.length - 1]
+
+            return largetSizeB - largetSizeA;
+        })
+        console.log('Available sizes', inventory);
+    }
+
   return (
       <main className="page-container">
         <h1>Tech it easy dashboard</h1>
@@ -42,6 +74,10 @@ function App() {
                   return <li key={`Merkenlijst-${tv.type}`}>${tv.brand}</li>
               })}
           </ul>
+          <h3>Beschikbare tvs</h3>
+          <ul>
+
+          </ul>
           <section className= "best-seller-container">
               <h2>Best verkochte tv</h2>
               <article className="product product-best-seller">
@@ -62,10 +98,52 @@ function App() {
                 </div>
               </article>
           </section>
-          <section className="all-tv-container">
-
-
+          <section>
+              <h2>Alle tvs</h2>
+              <button type="button" onClick={sortBestSellers}>
+                  Meest verkocht eerst
+              </button>
+              <button type="button" onClick={sortCheapestTv}>
+                  Goedkoopste eerst
+              </button>
+              <button type="button" onClick={sortSportTv}>
+                  Meest geschikt voor sport eerst
+              </button>
+              <button type="button" onClick={sortBiggestScreen}>
+                  Grootste schermgroottes eerst
+              </button>
+              {inventory.map((tv)=> {
+                  return (
+                      <article className="product" key={tv.type}>
+                          {tv.originalStock - tv.sold === 0 && <p className="product-sold-out">Uitverkocht</p>}
+                          <span className="product-price">
+                              <img src={tv.sourceImg} alt="Afbeelding van het product"/>
+                          </span>
+                          <div className="product-info">
+                              <h3>{productName(tv)}</h3>
+                              <p className="product-price">{productPrice(tv)}</p>
+                              <p>{CreateScreenStringNames(tv.availableSizes)}</p>
+                              <ul className="option-list">
+                                  {tv.options.map((option) => {
+                                      if (option.applicable === true){
+                                          return <li key={`${tv.type}-${option.name}`}>
+                                              <img src={check} alt="Icoon: aanwezig" className="icon"/>
+                                              {option.name}
+                                          </li>
+                                      } else {
+                                          return <li key={`${tv.type}-${option.name}`}>
+                                              <img src={minus} alt="Icoon: niet aanwezig" className="icon"/>
+                                              {option.name}
+                                          </li>
+                                      }
+                                  })}
+                              </ul>
+                          </div>
+                      </article>
+                  )
+              })}
           </section>
+
       </main>
   )
 }

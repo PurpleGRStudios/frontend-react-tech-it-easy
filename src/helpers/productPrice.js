@@ -2,7 +2,7 @@
 
 
 function productPrice(tv){
-    return `${tv.price}`;
+    return `$${tv.price}`;
 }
 
 export default productPrice;
